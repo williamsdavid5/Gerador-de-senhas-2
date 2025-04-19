@@ -1,9 +1,9 @@
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default function Passwords() {
     return (
         <View>
-            Tela de senhas
+            <Text>senhas</Text>
         </View>
     )
 }

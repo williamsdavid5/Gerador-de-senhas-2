@@ -1,9 +1,9 @@
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View>
-      Tela inicial
+      <Text>Tela inicial</Text>
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View, Text, Pressable } from 'react-native';
 import Slider from '@react-native-community/slider'
 import { useState } from 'react';
-
+import { Shadow } from 'react-native-shadow-2';
 
 export default function HomeScreen() {
 
@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <Text style={styles.title}>Nova Senha</Text>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Image source={require('../../assets/images/cadeadoIcon.png')} style={{ width: '40%', height: '40%', resizeMode: 'contain' }}></Image>
-        <Text style={styles.text}>Escolha a quantidade de caracteres para a sua nova senha.</Text>
+        <Text style={[styles.text, { marginTop: 10 }]}>Escolha a quantidade de caracteres para a sua nova senha.</Text>
         <Text style={[styles.title, { marginTop: 15 }]}>{caracteres} Caracteres</Text>
         <Slider
           style={styles.slider}
@@ -27,13 +27,13 @@ export default function HomeScreen() {
           }}
           value={10}
         ></Slider>
+        <Pressable style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed
+        ]}>
+          <Text style={[styles.text, { fontFamily: 'segoeUI-Bold' }]}>Gerar</Text>
 
-        <View style={styles.shadowWrapper}>
-          <View style={styles.shadow} />
-          <Pressable style={styles.buttom}>
-            <Text style={[styles.text, { fontFamily: 'segoeUI-Bold' }]}>Salvar senha</Text>
-          </Pressable>
-        </View>
+        </Pressable>
 
       </View>
     </View>
@@ -56,34 +56,21 @@ const styles = StyleSheet.create({
     fontFamily: 'segoeUI'
   },
   slider: {
-    width: '100%',
+    width: '80%',
     height: 80
   },
-  buttom: {
+  button: {
     backgroundColor: '#F0EADC',
     width: '80%',
-    height: 50,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
-    borderWidth: 5,
+    borderRadius: 13,
+    borderWidth: 6,
     borderColor: '#343331',
+    elevation: 5
   },
-  shadowWrapper: {
-    position: 'relative',
-    width: '100%',
-    height: 50,
-    alignItems: 'center'
-  },
-  shadow: {
-    position: 'absolute',
-    top: 5,   // deslocamento vertical
-    right: 30,
-    width: '80%',
-    height: '100%',
-    backgroundColor: '#343331', // sombra sólida
-    borderRadius: 8,
-    zIndex: 0,
-  },
-
+  buttonPressed: {
+    transform: [{ scale: 0.98 }]
+  }
 });

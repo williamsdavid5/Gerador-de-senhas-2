@@ -27,7 +27,7 @@ export default function TabLayout() {
             </Tabs>
 
 
-            <View style={{ alignItems: 'center', justifyContent: 'center', height: 80, backgroundColor: '#F0EADC' }}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', height: 100, backgroundColor: '#F0EADC' }}>
                 <View style={styles.tabBar}>
                     <Pressable style={styles.button}
                         onPress={() => router.replace('/')}
@@ -49,18 +49,19 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
     tabBar: {
         width: '90%',
-        height: '80%',
+        height: '60%',
         backgroundColor: '#343331',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 6
+        borderRadius: 15,
+        elevation: 10
     },
     button: {
         width: '50%',
         height: '100%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     textButton: {
         fontSize: 15

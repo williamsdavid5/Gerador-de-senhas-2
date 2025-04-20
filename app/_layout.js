@@ -29,19 +29,17 @@ export default function TabLayout() {
             </Tabs>
 
 
-            <View style={{ alignItems: 'center', justifyContent: 'center', height: 100, backgroundColor: cores.corBranco }}>
-                <View style={styles.tabBar}>
-                    <Pressable style={styles.button}
-                        onPress={() => router.replace('/')}
-                    >
-                        <Image source={require('../assets/images/tabBarCadeado.png')} style={styles.tabBarIcons}></Image>
-                    </Pressable>
-                    <Pressable style={styles.button}
-                        onPress={() => router.replace('/(tabs)/passwords')}
-                    >
-                        <Image source={require('../assets/images/tabBarLista.png')} style={styles.tabBarIcons}></Image>
-                    </Pressable>
-                </View>
+            <View style={styles.tabBar}>
+                <Pressable style={styles.button}
+                    onPress={() => router.replace('/')}
+                >
+                    <Image source={require('../assets/images/tabBarCadeado.png')} style={styles.tabBarIcons}></Image>
+                </Pressable>
+                <Pressable style={styles.button}
+                    onPress={() => router.replace('/(tabs)/passwords')}
+                >
+                    <Image source={require('../assets/images/tabBarLista.png')} style={styles.tabBarIcons}></Image>
+                </Pressable>
 
             </View>
         </>
@@ -50,14 +48,13 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
     tabBar: {
-        width: '90%',
-        height: '60%',
-        backgroundColor: cores.corPreto,
+        width: '100%',
+        height: 70,
+        backgroundColor: cores.corBranco,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 8,
-        elevation: 10
+        borderTopWidth: 2
     },
     button: {
         width: '50%',

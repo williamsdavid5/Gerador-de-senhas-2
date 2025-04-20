@@ -55,24 +55,23 @@ const styles = StyleSheet.create({
         backgroundColor: cores.corBranco,
         width: '100%',
         padding: 10,
-        borderWidth: 2,
-        borderRadius: 10,
+        borderTopWidth: 2,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 10,
         marginTop: 10,
-        paddingBottom: 15
     },
     text: {
         fontSize: 20,
-        fontFamily: 'segoeUI',
+        fontFamily: 'monospace',
         color: cores.corPreto
     },
     textBold: {
         fontSize: 20,
-        fontFamily: 'segoeUI-Bold',
-        color: cores.corPreto
+        fontFamily: 'monospace',
+        color: cores.corPreto,
+        fontWeight: 'bold'
     },
     icon: {
         width: 40,

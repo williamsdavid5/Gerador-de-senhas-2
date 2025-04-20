@@ -32,7 +32,7 @@ export default function HomeScreen() {
     <View style={styles.background}>
       <Text style={styles.title}>Nova Senha</Text>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../../assets/images/cadeadoIcon.png')} style={{ width: '40%', height: '40%', resizeMode: 'contain' }}></Image>
+        <Image source={require('../../assets/images/cadeadoIcon.png')} style={{ width: '50%', height: '40%', resizeMode: 'contain' }}></Image>
         <Text style={[styles.text, { marginTop: 10 }]}>Escolha a quantidade de caracteres para a sua nova senha.</Text>
         <Text style={[styles.title, { marginTop: 15 }]}>{caracteres} Caracteres</Text>
         <Slider
@@ -55,7 +55,7 @@ export default function HomeScreen() {
             setModalVisible(true)
           }}
         >
-          <Text style={[styles.text, { fontFamily: 'segoeUI-Bold' }]}>Gerar</Text>
+          <Text style={[styles.text, { fontWeight: 'bold' }]}>Gerar</Text>
         </Pressable>
 
         <Modal
@@ -65,32 +65,32 @@ export default function HomeScreen() {
           onRequestClose={() => setModalVisible(false)}
         >
           <View style={styles.modal}>
-            <Text style={styles.text}>Senha Gerada:</Text>
+            <Text style={[styles.text, { width: '90%', textAlign: 'left' }]}>Senha Gerada:</Text>
+            <View style={{ width: '90%', alignItems: 'center', marginVertical: 20, paddingVertical: 10, paddingBottom: 20, borderTopWidth: 2, borderBottomWidth: 2 }}>
 
-            <Text
-              style={[styles.title,
-              {
-                fontSize: 25,
-                marginTop: 20,
-                marginBottom: 20,
-                backgroundColor: cores.corAzul,
-                width: '100%',
-                textAlign: 'center',
-                height: '40'
-              }]}>
-              {senha}
-            </Text>
+              <Text
+                style={[styles.title,
+                {
+                  fontSize: 25,
+                  width: '100%',
+                  textAlign: 'center',
+                  height: '40',
+                  marginVertical: 10
+                }]}>
+                {senha}
+              </Text>
 
-            <TextInput
-              placeholder='Etiqueta'
-              placeholderTextColor={cores.corBranco}
-              value={etiqueta}
-              onChangeText={text => setEtiqueta(text)}
-              style={styles.input}
-            >
-            </TextInput>
+              <TextInput
+                placeholder='Etiqueta'
+                placeholderTextColor={cores.corBrancoEscuro}
+                value={etiqueta}
+                onChangeText={text => setEtiqueta(text)}
+                style={styles.input}
+              >
+              </TextInput>
+            </View>
             <Pressable
-              style={styles.button}
+              style={[styles.button, { width: '90%', marginTop: 15 }]}
               onPress={async () => {
                 if (etiqueta.trim() === '') {
                   Alert.alert(
@@ -112,7 +112,7 @@ export default function HomeScreen() {
             >
               <Text style={[styles.text, { fontFamily: 'segoeUI-Bold' }]}>Salvar Senha</Text>
             </Pressable>
-            <Pressable style={[styles.button, { marginTop: 10, backgroundColor: cores.corPreto }]}>
+            <Pressable style={[styles.button, { marginTop: 10, backgroundColor: cores.corPreto, width: '90%' }]}>
               <Text
                 onPress={() => setModalVisible(false)}
                 style={[styles.text, { fontFamily: 'segoeUI-Bold', color: cores.corBranco }]}
@@ -135,28 +135,27 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontFamily: 'segoeUI-Bold',
+    fontFamily: 'monospace',
+    fontWeight: '900'
   },
   text: {
     fontSize: 20,
     textAlign: 'center',
-    fontFamily: 'segoeUI',
+    fontFamily: 'monospace',
     color: cores.corPreto
   },
   slider: {
-    width: '80%',
+    width: '100%',
     height: 80
   },
   button: {
-    backgroundColor: cores.corBranco,
-    width: '80%',
+    backgroundColor: cores.corLaranja,
+    width: '100%',
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 14,
-    borderWidth: 6,
+    borderWidth: 2,
     borderColor: cores.corPreto,
-    elevation: 5
   },
   buttonPressed: {
     transform: [{ scale: 0.98 }]
@@ -168,13 +167,13 @@ const styles = StyleSheet.create({
     backgroundColor: cores.corBranco
   },
   input: {
-    width: '80%',
-    backgroundColor: cores.corPreto,
+    width: '100%',
+    backgroundColor: cores.corBranco,
     margin: 10,
     padding: 10,
-    borderRadius: 14,
     height: 60,
-    color: cores.corBranco,
-    fontSize: 20
+    fontSize: 20,
+    borderBlockColor: cores.corPreto,
+    borderWidth: 2
   }
 });

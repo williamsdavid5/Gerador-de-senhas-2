@@ -1,5 +1,8 @@
 export const cores = {
     corAzul: '#B8DBD7',
-    corPreto: '#343331',
-    corBranco: '#F0EADC'
+    corPreto: '#000',
+    corBranco: '#feeed5',
+    corLaranja: '#ff6f29',
+    corAmarelo: '#f8dc3d',
+    corBrancoEscuro: '#cbb593'
 }

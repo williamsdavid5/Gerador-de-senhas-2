@@ -19,7 +19,7 @@ export default function Passwords() {
     return (
         <SafeAreaView style={styles.safeAera}>
             <ScrollView style={styles.content}>
-                <Text style={[styles.title, { marginBottom: 10 }]}>Senhas salvas</Text>
+                <Text style={[styles.title, { marginBottom: 10, marginTop: 20 }]}>Senhas salvas</Text>
                 {senhas.map((senha, index) => (
                     <SenhaComponent
                         key={index}
@@ -42,19 +42,21 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontFamily: 'segoeUI-Bold',
+        fontFamily: 'monospace',
+        fontWeight: 'bold'
     },
     text: {
         fontSize: 20,
         textAlign: 'center',
-        fontFamily: 'segoeUI',
+        fontFamily: 'monospace',
         color: cores.corPreto
     },
     textBold: {
         fontSize: 20,
         textAlign: 'center',
-        fontFamily: 'segoeUI-Bold',
-        color: cores.corPreto
+        fontFamily: 'monospace',
+        color: cores.corPreto,
+        fontWeight: 'bold'
     },
     safeAera: {
         flex: 1,

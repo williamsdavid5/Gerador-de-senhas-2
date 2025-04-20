@@ -105,9 +105,6 @@ export default function HomeScreen() {
                 }
 
                 await adicionarSenha(novaSenha);
-
-                console.log(senhas);
-
                 setEtiqueta('');
                 setSenha('');
                 setModalVisible(false);
@@ -138,7 +135,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: 'bold',
+    fontFamily: 'segoeUI-Bold',
   },
   text: {
     fontSize: 20,

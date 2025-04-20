@@ -2,6 +2,7 @@ import { Image, StyleSheet, View, Text, Pressable, Modal, TextInput, Alert } fro
 import Slider from '@react-native-community/slider'
 import { useState } from 'react';
 import { cores } from '../../hooks/cores';
+import { useSenhas } from '../../hooks/useSenhas';
 
 export default function HomeScreen() {
 
@@ -9,7 +10,8 @@ export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [etiqueta, setEtiqueta] = useState('');
   const [senha, setSenha] = useState('');
-  const [senhas, setSenhas] = useState([]);
+
+  const { senhas, adicionarSenha } = useSenhas();
 
   function gerarSenha() {
     const letras = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -89,7 +91,7 @@ export default function HomeScreen() {
             </TextInput>
             <Pressable
               style={styles.button}
-              onPress={() => {
+              onPress={async () => {
                 if (etiqueta.trim() === '') {
                   Alert.alert(
                     'Atenção', 'Adicione uma etiqueta à senha!'
@@ -102,7 +104,10 @@ export default function HomeScreen() {
                   'senha': senha
                 }
 
-                setSenhas([...senhas, novaSenha]);
+                await adicionarSenha(novaSenha);
+
+                console.log(senhas);
+
                 setEtiqueta('');
                 setSenha('');
                 setModalVisible(false);

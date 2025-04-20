@@ -30,7 +30,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.background}>
-      <Text style={styles.title}>Nova Senha</Text>
+      <Text style={[styles.title, { width: '100%', borderBottomWidth: 2, padding: 20 }]}>Nova Senha</Text>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Image source={require('../../assets/images/cadeadoIcon.png')} style={{ width: '50%', height: '40%', resizeMode: 'contain' }}></Image>
         <Text style={[styles.text, { marginTop: 10 }]}>Escolha a quantidade de caracteres para a sua nova senha.</Text>
@@ -110,12 +110,13 @@ export default function HomeScreen() {
                 setModalVisible(false);
               }}
             >
-              <Text style={[styles.text, { fontFamily: 'segoeUI-Bold' }]}>Salvar Senha</Text>
+              <Text style={[styles.text]}>Salvar Senha</Text>
             </Pressable>
-            <Pressable style={[styles.button, { marginTop: 10, backgroundColor: cores.corPreto, width: '90%' }]}>
+            <Pressable
+              style={[styles.button, { marginTop: 10, backgroundColor: cores.corPreto, width: '90%' }]}
+              onPress={() => setModalVisible(false)}>
               <Text
-                onPress={() => setModalVisible(false)}
-                style={[styles.text, { fontFamily: 'segoeUI-Bold', color: cores.corBranco }]}
+                style={[styles.text, { color: cores.corBranco }]}
               >Cancelar</Text>
             </Pressable>
           </View>
@@ -130,7 +131,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    padding: 20,
     backgroundColor: cores.corBranco
   },
   title: {
@@ -142,15 +142,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     fontFamily: 'monospace',
-    color: cores.corPreto
+    color: cores.corPreto,
+    paddingHorizontal: 10
   },
   slider: {
-    width: '100%',
+    width: '90%',
     height: 80
   },
   button: {
     backgroundColor: cores.corLaranja,
-    width: '100%',
+    width: '90%',
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',

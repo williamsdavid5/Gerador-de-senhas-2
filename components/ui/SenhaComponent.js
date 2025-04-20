@@ -3,7 +3,7 @@ import { cores } from '../../hooks/cores';
 import { useEffect, useState } from 'react';
 import { useSenhas } from '../../hooks/useSenhas';
 
-export default function SenhaComponent({ etiqueta, senha, index }) {
+export default function SenhaComponent({ etiqueta, senha, index, cor }) {
 
     const [id, seiId] = useState(0);
     const [mostrarSenha, setMostrarSenha] = useState(false);
@@ -14,7 +14,7 @@ export default function SenhaComponent({ etiqueta, senha, index }) {
     }, [index])
 
     return (
-        <View style={styles.content}>
+        <View style={[styles.content, cor ? { backgroundColor: cores.corAmarelo } : { backgroundColor: cores.corBranco }]}>
             <View style={{ flex: 0.7 }}>
                 <Text style={styles.textBold}>{etiqueta}</Text>
                 <Text style={styles.text}>{mostrarSenha ? senha : '••••••••••••••••'}</Text>
@@ -54,13 +54,10 @@ const styles = StyleSheet.create({
     content: {
         backgroundColor: cores.corBranco,
         width: '100%',
-        padding: 10,
-        borderTopWidth: 2,
+        padding: 20,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 10,
-        marginTop: 10,
     },
     text: {
         fontSize: 20,

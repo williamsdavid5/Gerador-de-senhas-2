@@ -2,6 +2,8 @@ import { Tabs } from 'expo-router';
 import { Text, View, Pressable, Image, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useFonts } from 'expo-font';
+import { cores } from '../hooks/cores';
+
 
 export default function TabLayout() {
 
@@ -27,7 +29,7 @@ export default function TabLayout() {
             </Tabs>
 
 
-            <View style={{ alignItems: 'center', justifyContent: 'center', height: 100, backgroundColor: '#F0EADC' }}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', height: 100, backgroundColor: cores.corBranco }}>
                 <View style={styles.tabBar}>
                     <Pressable style={styles.button}
                         onPress={() => router.replace('/')}
@@ -50,11 +52,11 @@ const styles = StyleSheet.create({
     tabBar: {
         width: '90%',
         height: '60%',
-        backgroundColor: '#343331',
+        backgroundColor: cores.corPreto,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15,
+        borderRadius: 8,
         elevation: 10
     },
     button: {
